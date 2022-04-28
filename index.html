@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- 메타 부분 아직 생성하지 않음 -->
+  <title>파리바게트</title>
+  <style>
+    /* 전체 스타일 부분 */
+    .clearfix::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+    :root{
+      /* font-family 아직 고르지 못했음 */
+      font-weight: 400;
+      /* font-size 아직 측정 못했음 */
+      color: #111;
+    }
+
+    /* 스킵 메뉴 스타일 부분 */
+    .skip-menu a{
+      position: absolute;
+      left: 50%;
+      top: -50%;
+      z-index: 100;
+      transform: translate(-50%, -50%);
+      padding: 10px 20px;
+      background-color: #eee;
+      font-weight: 700;
+      font-size: 32px;
+      color: #023586;
+      border: 2px solid #023586;
+      border-radius: 10px;
+    }
+    .skip-menu a:focus{
+      top: 50%;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- 스킵메뉴 -->
+  <section class="skip-menu">
+    <a href="#">홈으로 바로가기</a>
+    <a href="#">소식으로 바로가기</a>
+    <a href="#">이야기로 바로가기</a>
+    <a href="#">홍보로 바로가기</a>
+    <a href="#">판매상품으로 바로가기</a>
+    <a href="#">SNS광고로 바로가기</a>
+    <a href="#">고객센터로 바로가기</a>
+  </section>
+  <!-- 본문 내용 -->
+  <section class="wrap">
+    <!-- 헤더부분 -->
+    <header class="header">
+      <div class="container">
+        <div class="inner">
+          <nav class="nav">
+            <div class="l-nav">
+              <ul>
+                <li><a href="#">PB MAGAZINE</a></li>
+                <li><a href="#">PB STORY</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+              </ul>
+            </div>
+            <div class="c-nav">
+              <h1><a href="./index.html">PARIS BAGUETTE</a></h1>
+            </div>
+            <div class="r-nav">
+              <ul>
+                <li><a href="#">STORE</a></li>
+                <li><a href="#">DELIVERY</a></li>
+                <li><a href="#">PROMOTION</a></li>
+                <!-- 돋보기 기능 및 형태 아직 미구현 -->
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- 메인슬라이더 부분 -->
+    <section class="sec main-promotion">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-tit">
+            <h2>메인프로모션</h2>
+          </div>
+          <div class="slider">
+            <div class="slide slide01">
+              <a href="#"><img src="./images/img-slide01.png" alt="골든클로버"></a>
+            </div>
+            <div class="slide slide02">
+              <a href="#"><img src="./images/img-slide02.jpg" alt="디카페인"></a>
+            </div>
+            <div class="slide slide03">
+              <a href="#"><img src="./images/img-slide03.jpg" alt="그린은 늘 옳다."></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PB MAGAZINE 부분 -->
+    <section class="sec magazine">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-top">
+            <div class="sec-tit">
+              <h2>PB MAGAZINE</h2>
+            </div>
+            <div class="sec-more">
+              <span>SHOW MORE</span>
+            </div>
+          </div>
+          <div class="sec-contents sec-bottom">
+            <a href="#"><img src="./images/img-magazine01.png" alt="무안양파"></a>
+            <a href="#"><img src="./images/img-magazine02.png" alt="파바마카롱"></a>
+            <a href="#"><img src="./images/img-magazine03.png" alt="논산딸기 비타베리"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PB STORY 부분 -->
+    <section class="sec magazine">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-top">
+            <div class="sec-tit">
+              <h2>PB STORY</h2>
+            </div>
+            <div class="sec-more">
+              <span>SHOW MORE</span>
+            </div>
+          </div>
+          <div class="sec-contents sec-bottom">
+            <div class="content content01">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-story01.png" alt="ESG행복상생"></a>
+              </div>
+              <div class="content-txt">
+                <h3>BREAD VIDEO</h3>
+                <h4>ESG 행복상생 프로젝트 With 논산시 청년농부</h4>
+                <p>이 남자.. 딸기에 '진심'이다..! 논산 딸기밭에서 청년농부 박태준님을 만나봄</p>
+                <span>2022-03-29</span>
+              </div>
+            </div>
+            <!-- 2~4번은 스타일 잡고 수정해야함! -->
+            <div class="content content02">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-story02.png" alt="ESG행복상생"></a>
+              </div>
+              <div class="content-txt">
+                <h3>BREAD VIDEO</h3>
+                <h4>ESG 행복상생 프로젝트 With 논산시 청년농부</h4>
+                <p>이 남자.. 딸기에 '진심'이다..! 논산 딸기밭에서 청년농부 박태준님을 만나봄</p>
+                <span>2022-03-29</span>
+              </div>
+            </div>
+            <div class="content content03">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-story03.png" alt="ESG행복상생"></a>
+              </div>
+              <div class="content-txt">
+                <h3>BREAD VIDEO</h3>
+                <h4>ESG 행복상생 프로젝트 With 논산시 청년농부</h4>
+                <p>이 남자.. 딸기에 '진심'이다..! 논산 딸기밭에서 청년농부 박태준님을 만나봄</p>
+                <span>2022-03-29</span>
+              </div>
+            </div>
+            <div class="content content04">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-story04.png" alt="ESG행복상생"></a>
+              </div>
+              <div class="content-txt">
+                <h3>BREAD VIDEO</h3>
+                <h4>ESG 행복상생 프로젝트 With 논산시 청년농부</h4>
+                <p>이 남자.. 딸기에 '진심'이다..! 논산 딸기밭에서 청년농부 박태준님을 만나봄</p>
+                <span>2022-03-29</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTION 부분 -->
+    <section class="sec promotion">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-top">
+            <div class="sec-tit">
+              <h2>PROMOTION</h2>
+            </div>
+            <div class="sec-more">
+              <span>SHOW MORE</span>
+            </div>
+          </div>
+          <div class="sec-contents sec-bottom pro-slider">
+              <div class="slide slide01">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-promotion01.jpg" alt="파바데이"></a>
+                </div>
+                <div class="slide-txt">
+                  <p>파바위크! 가정의 달 사전예약 시작!</p>
+                  <span>READ MORE</span>
+                </div>
+              </div>
+              <!-- 2~4번은 스타일부터 잡고 수정해야함! -->
+              <div class="slide slide02">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-promotion02.jpg" alt="파바위크"></a>
+                </div> 
+                <div class="slide-txt">
+                  <p>파바위크! 가정의 달 사전예약 시작!</p>
+                  <span>READ MORE</span>
+                </div>
+              </div>
+              <div class="slide slide03">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-promotion03.jpg" alt="디카페인"></a>
+                </div>
+                <div class="slide-txt">
+                  <p>파바위크! 가정의 달 사전예약 시작!</p>
+                  <span>READ MORE</span>
+                </div>
+              </div>
+              <div class="slide slide04">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-promotion04.png" alt="골든클로버"></a>
+                </div>
+                <div class="slide-txt">
+                  <p>파바위크! 가정의 달 사전예약 시작!</p>
+                  <span>READ MORE</span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS 부분 -->
+    <section class="sec products">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-top">
+            <div class="sec-tit">
+              <h2>PRODUCTS</h2>
+            </div>
+            <div class="sec-more">
+              <span>SHOW MORE</span>
+            </div>
+          </div>
+          <div class="sec-contents sec-bottom pro-slider">
+              <div class="slide slide01">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-product01.png" alt="고구마케이크"></a>
+                </div>
+                <div class="slide-txt">
+                  <p>고구마가 좋아 춘식이 고구마 케이크</p>
+                </div>
+              </div>
+              <div class="slide slide02">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-product02.jpg" alt="라이언케이크"></a>
+                </div> 
+                <div class="slide-txt">
+                  <p>생일축하해! 라이언 케이크</p>
+                </div>
+              </div>
+              <div class="slide slide03">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-product03.jpg" alt="톡톡콘치즈핫도그"></a>
+                </div>
+                <div class="slide-txt">
+                  <p>톡톡콘치즈핫도그</p>
+                </div>
+              </div>
+              <div class="slide slide04">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-product04.png" alt="스파이시미트칠리핫도그"></a>
+                </div>
+                <div class="slide-txt">
+                  <span>스파이시미트칠리핫도그</span>
+                </div>
+              </div>
+              <div class="slide slide05">
+                <div class="slide-img">
+                  <a href="#"><img src="./images/img-product05.png" alt="베리굿 롤케익"></a>
+                </div>
+                <div class="slide-txt">
+                  <span>베리굿 롤케익</span>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SNS홍보 부분 -->
+    <section class="sec sns-ad">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-top">
+            <div class="sec-tit">
+              <h2>@parisbaguette_kr</h2>
+            </div>
+            <div class="sec-more">
+              <span>Instagram</span>
+            </div>
+          </div>
+          <div class="sec-contents sec-bottom">
+            <div class="content content01">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-sns_ad01.jpg" alt="춘식이1"></a>
+              </div>
+              <div class="content-txt">
+
+              </div>
+            </div>
+            <!-- 2~6번은 스타일 잡고 수정해야함! -->
+            <div class="content content02">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-sns_ad02.jpg" alt="춘식이2"></a>
+              </div>
+              <div class="content-txt">
+
+              </div>
+            </div>
+            <div class="content content03">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-sns_ad03.jpg" alt="가평잣도나쓰"></a>
+              </div>
+              <div class="content-txt">
+
+              </div>
+            </div>
+            <div class="content content04">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-sns_ad04.jpg" alt="지구의날"></a>
+              </div>
+              <div class="content-txt">
+
+              </div>
+            </div>
+            <div class="content content05">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-sns_ad05.jpg" alt="파바위크"></a>
+              </div>
+              <div class="content-txt">
+
+              </div>
+            </div>
+            <div class="content content06">
+              <div class="content-img">
+                <a href="#"><img src="./images/img-sns_ad06.jpg" alt="아다지오"></a>
+              </div>
+              <div class="content-txt">
+
+              </div>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 각 게시판 부분 -->
+    <section class="sec board">
+      <div class="container">
+        <div class="inner">
+          <div class="sec-tit">
+            <h2>각 게시판</h2>
+          </div>
+          <div class="contents">
+            <div class="content content01">
+              <div class="content-tit">
+                <h3>고객센터</h3>
+              </div>
+              <div class="content-txt">
+                <p>고객의 소리를 적극 경청하고 고객만족 향상 활동을 지속적으로 실천합니다.</p>
+              </div>
+            </div>
+            <div class="content content02">
+              <div class="content-tit">
+                <h3>제휴카드안내</h3>
+              </div>
+              <div class="content-txt">
+                <p>해피포인트와 제휴카드 정보를 확인하세요.</p>
+              </div>
+            </div>
+            <div class="content content03">
+              <div class="content-tit">
+                <h3>공지사항</h3>
+              </div>
+              <div class="content-txt">
+                <p>파리바게뜨 공지내용을 확인하세요.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 푸터 부분 -->
+    <footer class="footer">
+      <div class="container">
+        <h2>footer</h2>
+        <div class="inner">
+          <div class="contents">
+            <div class="contents-top">
+              <div class="top-con top-con01">
+                <h3>Info</h3>
+                <ul>
+                  <li><a href="#">브랜드소개</a></li>
+                  <li><a href="#">창업안내</a></li>
+                  <li><a href="#">거래희망사전등록</a></li>
+                  <li><a href="#">윤리신고센터</a></li>
+                  <li><a href="#">채용</a></li>
+                </ul>
+              </div>
+              <div class="top-con top-con02">
+                <h3>Contact Us</h3>
+                <ul>
+                  <li><a href="#">고객센터</a></li>
+                  <li><a href="#">080-731-2027</a></li>
+                  <li>평일 09:00 - 17:00 (점심 12:00 - 13:00)</li>
+                  <li><a href="#">고객칭찬</a></li>
+                </ul>
+              </div>
+              <div class="top-con top-con03">
+                <h3>SPC</h3>
+                <ul>
+                  <li><a href="#">ccm</a></li>
+                  <li><a href="#">ncsi</a></li>
+                  <li><a href="#">kcsi</a></li>
+                  <li><a href="#">ks-sqi</a></li>
+                  <li><a href="#">nbcl</a></li>
+                </ul>
+              </div>
+              <div class="top-con top-con04">
+                <h3>Follow Us</h3>
+                <ul>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Instagram</a></li>
+                  <li><a href="#">Youtube</a></li>
+                </ul>
+                <span>Brand Site</span>
+              </div>
+            </div>
+            <div class="contents-mid">
+              <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">이메일무단수집거부</a></li>
+                <li><a href="#">영상정보처리기기운영관리방침</a></li>
+              </ul>
+            </div>
+            <div class="contents-bot">
+              <p>All Rights Reserved © PARIS BAGUETTE, PARIS CROISSANT CO., LTD. 경기도 성남시 중원구 상대원동 사기막골로 31번길 18 (주) 파리크라상</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+</body>
+</html>

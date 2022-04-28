@@ -1,0 +1,21 @@
+>font-color
+파랑계열
+#062f78
+#1e73be
+
+회색/검정계열
+#515151
+
+> body-color
+#111;
+
+> font-family
+PBGothic
+Noto Sans KR
+
+> font-weight
+:root : 600
+etc: 400
+
+> background-color
+nav - #023586
