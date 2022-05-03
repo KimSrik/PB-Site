@@ -9,6 +9,7 @@
   <!-- 메타 부분 아직 생성하지 않음 -->
   <title>파리바게트</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     /* 전체 스타일 부분 */
     .clearfix::after{
       content: '';
@@ -16,9 +17,9 @@
       clear: both;
     }
     :root{
-      /* font-family 아직 고르지 못했음 */
+      font-family: 'Poppins', 'Noto-Sans-KR', sans-serif;
       font-weight: 400;
-      /* font-size 아직 측정 못했음 */
+      font-size: 14px;
       color: #111;
     }
 
@@ -41,6 +42,57 @@
       top: 50%;
     }
 
+    /* 헤더 부분 */
+    .header>.container{
+      height: 90px;
+      background-color: #023586;
+    }
+    .inner{
+      height: 100%;
+    }
+    .nav{
+      height: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-items: center;
+
+      color: #eee;
+    }
+    .l-nav, .r-nav{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .l-nav>li, .r-nav>li{
+      margin-right: 20px;
+    }
+    .c-nav{
+      font-size: 28px;
+    }
+
+    @media (max-width: 990px) {
+      .l-nav, .r-nav{
+        display: none;
+      }
+      .c-nav{
+        font-size: 18px;
+      }
+    }
+    @media (max-width: 640px) {
+      /* 하단 네비게이션 바 나타남 */
+      /* 우측 사이드 네비게이션 바 사라짐 */
+      /* store, delevery, promo, 창업안내, app */
+      
+    }
+
+    @media (max-width: 500px) {
+
+    }
+
   </style>
 </head>
 <body>
@@ -61,24 +113,20 @@
       <div class="container">
         <div class="inner">
           <nav class="nav">
-            <div class="l-nav">
-              <ul>
-                <li><a href="#">PB MAGAZINE</a></li>
-                <li><a href="#">PB STORY</a></li>
-                <li><a href="#">PRODUCTS</a></li>
-              </ul>
-            </div>
+            <ul class="l-nav">
+              <li><a href="#">PB MAGAZINE</a></li>
+              <li><a href="#">PB STORY</a></li>
+              <li><a href="#">PRODUCTS</a></li>
+            </ul>
             <div class="c-nav">
               <h1><a href="./index.html">PARIS BAGUETTE</a></h1>
             </div>
-            <div class="r-nav">
-              <ul>
-                <li><a href="#">STORE</a></li>
-                <li><a href="#">DELIVERY</a></li>
-                <li><a href="#">PROMOTION</a></li>
-                <!-- 돋보기 기능 및 형태 아직 미구현 -->
-              </ul>
-            </div>
+            <ul class="r-nav">
+              <li><a href="#">STORE</a></li>
+              <li><a href="#">DELIVERY</a></li>
+              <li><a href="#">PROMOTION</a></li>
+              <!-- 돋보기 기능 및 형태 아직 미구현 -->
+            </ul>
           </nav>
         </div>
       </div>
@@ -93,13 +141,13 @@
           </div>
           <div class="slider">
             <div class="slide slide01">
-              <a href="#"><img src="./images/img-slide01.png" alt="골든클로버"></a>
+              <a href="#"><img src="./images/img-slide01.jpg" alt="메인-사랑합니다."></a>
             </div>
             <div class="slide slide02">
-              <a href="#"><img src="./images/img-slide02.jpg" alt="디카페인"></a>
+              <a href="#"><img src="./images/img-slide02.jpg" alt="메인-디카페인"></a>
             </div>
             <div class="slide slide03">
-              <a href="#"><img src="./images/img-slide03.jpg" alt="그린은 늘 옳다."></a>
+              <a href="#"><img src="./images/img-slide03.jpg" alt="메인-가평맛남샌드"></a>
             </div>
           </div>
         </div>
@@ -208,7 +256,7 @@
                   <a href="#"><img src="./images/img-promotion01.jpg" alt="파바데이"></a>
                 </div>
                 <div class="slide-txt">
-                  <p>파바위크! 가정의 달 사전예약 시작!</p>
+                  <p>파바 가정의달 특집 카쇼라!</p>
                   <span>READ MORE</span>
                 </div>
               </div>
@@ -233,7 +281,7 @@
               </div>
               <div class="slide slide04">
                 <div class="slide-img">
-                  <a href="#"><img src="./images/img-promotion04.png" alt="골든클로버"></a>
+                  <a href="#"><img src="./images/img-promotion04.jpg" alt="골든클로버"></a>
                 </div>
                 <div class="slide-txt">
                   <p>파바위크! 가정의 달 사전예약 시작!</p>
