@@ -95,6 +95,7 @@
     }
     .quick-btn{
       font-size: 1.3em;
+      cursor: pointer;
     }
     
 
@@ -107,7 +108,7 @@
       color: #4f4f4f;
       width: 280px;
       background-color: #fff;
-      transition: 1s;
+      transition: 0.5s;
       transition-timing-function:ease-out;
     }
     .btn-close-nav{
@@ -147,13 +148,19 @@
       width: 100%;
       padding: 0;
     }
+    
     .mp-container>.inner>.sec-tit{
       display: none;
     }
     
-
     .mp-slider{
       display: flex;
+    }
+    .slide>a>img{
+      filter: brightness(70%);
+    }
+    .slide>a>img:hover{
+      filter:none;
     }
 
     /* 매거진 부분 */
@@ -183,6 +190,22 @@
 
     .footer{
       display: none;
+    }
+
+    .all-page{
+      
+      z-index: -1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background-color: rgb(0, 0, 0);
+      opacity: 0;
+      transition: 0.5s;
+      
+      
     }
 
 
@@ -692,23 +715,28 @@
         </div>
       </div>
     </footer>
+
+    <!-- 전체페이지 처리 -->
+    <div class="all-page">
+      
+    </div>
   </section>
 
   <script>
-    let allWrap = document.querySelector('.wrap');
+    let allWrap = document.querySelector('.all-page');
     let btnQuickMenu = document.querySelector('.quick-menu');
     let btnQuickClose = document.querySelector('.btn-close-nav>i');
     let subNav = document.querySelector('.sub-nav');
     btnQuickMenu.addEventListener('click', ()=>{
       subNav.style.left = 0;
-      allWrap.style.opacity = 0.3;
-      allWrap.style.backgroundColor = '#fff';
-      
+      allWrap.style.opacity = 0.3;   
+      allWrap.style.zIndex = 9;   
     });
     btnQuickClose.addEventListener('click', ()=>{
       subNav.style.left = '-100%';
-      allWrap.style.opacity = 1;
-      allWrap.style.backgroundColor = '#000';
+      allWrap.style.opacity = 0;  
+      allWrap.style.zIndex = -1;
+      
     });
   </script>
 </body>
