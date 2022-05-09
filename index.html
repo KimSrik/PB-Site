@@ -47,10 +47,27 @@
 
     /* 공통 부분 */
     .wrap{
-      width: 100%;
+      position: relative;
+      width: auto;
+      overflow: hidden;
     }
     .container{
       padding: 0 16px;
+    }
+    .sec-top{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sec-tit>h2{
+      font-weight: 700;
+      font-size: 24px;
+    }
+    .sec-more>span{
+      font-weight: 500;
+      border-bottom: 3px solid black;
+      
     }
 
     /* 헤더 부분 */
@@ -143,18 +160,24 @@
     /* 메인 프로모션 부분 */
     .main-promo{
       /* display: none; */
+      
+      width: 100%;
     }
     .mp-container{
-      width: 100%;
       padding: 0;
     }
     
     .mp-container>.inner>.sec-tit{
       display: none;
     }
-    
+    .btn-move{
+      display: none;
+    }
     .mp-slider{
       display: flex;
+    }
+    .mp-slider .slide{
+      width: 33.333333%;
     }
     .slide>a>img{
       filter: brightness(70%);
@@ -165,7 +188,8 @@
 
     /* 매거진 부분 */
     .magazine{
-      display: none;
+      /* display: none; */
+      /* position: relative; */
     }
 
     .story{
@@ -228,6 +252,25 @@
       /* 슬라이더 좌우 이동하는 < > 버튼 나타남 */
       /* 더 큰 화면에서 820px 아래로 가면 */
       /* 3->2개로 갯수 바뀜 */
+      .slider{
+        position: relative;
+      }
+      .slider .slide{     
+        position: absolute;
+        width: 50%;
+      }
+      .slide01{
+        left: 0;     
+        right: 50%;  
+      }
+      .slide02{
+        left: 50%;
+        right: 0;
+      }
+      .slide03{
+        left: 100%;
+        right: -50%;
+      }
     }
     @media (max-width: 640px) {
       /* 하단 네비게이션 바 나타남 */
@@ -331,12 +374,16 @@
 
     <!-- 메인슬라이더 부분 -->
     <section class="sec main-promo">
-      <div class="container mp-container">
+      <div class="container mp-container ">
         <div class="inner">
           <div class="sec-tit">
             <h2>메인프로모션</h2>
           </div>
-          <div class="slider mp-slider">
+          <div class="btn-move">
+            <div class="btn-prev"><i class="far fa-chevron-left"></i></div>
+            <div class="btn-next"><i class="far fa-chevron-right"></i></div>
+          </div>
+          <div class="slider mp-slider ">
             <div class="slide slide01">
               <a href="#"><img src="./images/img-slide01.jpg" alt="메인-사랑합니다."></a>
             </div>
@@ -738,6 +785,12 @@
       allWrap.style.zIndex = -1;
       
     });
+    let slideItem = document.querySelector('.slide01 img');
+    let slider = document.querySelector('.slider');
+    
+    window.addEventListener('resize',()=>{
+      slider.style.height = slideItem.clientHeight;
+    })
   </script>
 </body>
 </html>
