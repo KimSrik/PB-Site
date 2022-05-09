@@ -50,15 +50,16 @@
       position: relative;
       width: auto;
       overflow: hidden;
-    }
+    }  
     .container{
-      padding: 0 16px;
+      padding: 80px 25px;
     }
     .sec-top{
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 30px;
     }
     .sec-tit>h2{
       font-weight: 700;
@@ -77,6 +78,7 @@
     .header>.container{
       height: 100%;
       background-color: #023586;
+      padding: 0 16px;
     }
     .inner{
       height: 100%;
@@ -158,15 +160,14 @@
     
 
     /* 메인 프로모션 부분 */
-    .main-promo{
-      /* display: none; */
-      
+    .wrap>.main-promo{
       width: 100%;
+      padding-top: 0;
+      padding-bottom: 80px;
     }
     .mp-container{
       padding: 0;
     }
-    
     .mp-container>.inner>.sec-tit{
       display: none;
     }
@@ -175,9 +176,6 @@
     }
     .mp-slider{
       display: flex;
-    }
-    .mp-slider .slide{
-      width: 33.333333%;
     }
     .slide>a>img{
       filter: brightness(70%);
@@ -189,11 +187,27 @@
     /* 매거진 부분 */
     .magazine{
       /* display: none; */
-      /* position: relative; */
+      
     }
+    .mz-contents{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+    .mz-contents a{
+      padding: 12px;
+    }
+    .mz-contents a:first-child{
+      padding-left: 0;
+    }
+    .mz-contents a:last-child{
+      padding-right: 0;
+    }
+    
 
+    /* 이야기 부분 */
     .story{
-      display: none;
+      /* display: none; */
     }
 
     .promotion{
@@ -217,7 +231,6 @@
     }
 
     .all-page{
-      
       z-index: -1;
       position: absolute;
       left: 0;
@@ -228,8 +241,6 @@
       background-color: rgb(0, 0, 0);
       opacity: 0;
       transition: 0.5s;
-      
-      
     }
 
 
@@ -252,12 +263,18 @@
       /* 슬라이더 좌우 이동하는 < > 버튼 나타남 */
       /* 더 큰 화면에서 820px 아래로 가면 */
       /* 3->2개로 갯수 바뀜 */
+      .container{
+        padding: 60px 16px;
+      }
+      .sec .mp-container{
+        padding: 0 0 60px 0;
+      }
       .slider{
         position: relative;
       }
       .slider .slide{     
         position: absolute;
-        width: 50%;
+        /* width: 50%; */
       }
       .slide01{
         left: 0;     
@@ -271,6 +288,7 @@
         left: 100%;
         right: -50%;
       }
+      
     }
     @media (max-width: 640px) {
       /* 하단 네비게이션 바 나타남 */
@@ -410,7 +428,7 @@
               <span>SHOW MORE</span>
             </div>
           </div>
-          <div class="sec-contents sec-bottom">
+          <div class="mz-contents sec-bottom">
             <a href="#"><img src="./images/img-magazine01.png" alt="무안양파"></a>
             <a href="#"><img src="./images/img-magazine02.png" alt="파바마카롱"></a>
             <a href="#"><img src="./images/img-magazine03.png" alt="논산딸기 비타베리"></a>
@@ -786,11 +804,18 @@
       
     });
     let slideItem = document.querySelector('.slide01 img');
-    let slider = document.querySelector('.slider');
+    let sliderObject = document.querySelector('.slider');
+    function 높이조정(){
+      sliderObject.style.height = `${slideItem.clientHeight}px`;
+    }
+   
+      높이조정();
+    window.onresize = ()=>{
+      높이조정();
+    }
+
+
     
-    window.addEventListener('resize',()=>{
-      slider.style.height = slideItem.clientHeight;
-    })
   </script>
 </body>
 </html>
