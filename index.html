@@ -25,6 +25,9 @@
       font-size: 14px;
       color: #111;
     }
+    .fa,.fab,.fad,.fal,.far,.fas{
+      font-weight: 900 !important;
+    }
 
     /* 스킵 메뉴 스타일 부분 */
     .skip-menu a{
@@ -73,6 +76,7 @@
 
     /* 헤더 부분 */
     .header{
+      position: relative;
       height: 90px;
     }
     .header>.container{
@@ -132,8 +136,6 @@
     }
     .btn-close-nav{
       height: 60px;
-    }
-    .btn-close-nav>i{
       cursor: pointer;
       line-height: 60px;
       font-size: 32px;
@@ -154,6 +156,40 @@
       margin-right: 15px;
       text-align: center;
       line-height: 50px;
+    }
+
+    .quick-search{
+      position: absolute;
+      top: -100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 10;
+      transition-duration: 0.5s;
+    }
+    .quick-search>input{
+      height: 100%;
+      width: 100%;
+      border: none;
+      padding-left: 3%;
+      font-size: 18px;
+    }
+    .quick-search>input::placeholder{
+      color: #ccc;
+    }
+    .btn-close-search{
+      position: absolute;
+      top: 50%;
+      right: 0;
+      z-index: 11;
+
+      transform: translateY(-50%);
+      cursor: pointer;
+      line-height: 60px;
+      font-size: 32px;
+      padding: 0 16px;
     }
     
 
@@ -275,6 +311,7 @@
       .slider .slide{     
         position: absolute;
         /* width: 50%; */
+        z-index: 6;
       }
       .slide01{
         left: 0;     
@@ -287,6 +324,25 @@
       .slide03{
         left: 100%;
         right: -50%;
+      }
+      .btn-move{
+        display: block;
+        position: absolute;
+        
+        z-index: 7;
+        font-size: 32px;
+        color: #fff;
+      }
+      .btn-prev{
+        position: absolute;
+        left: 3%;
+        top: 50%;
+      }
+      .btn-next{
+        position: absolute;
+        left: 95%;
+        
+        top: 50%;
       }
       
     }
@@ -301,7 +357,6 @@
       /* 520px 이하가 되면 한개로 바뀜. */
     }
     @media (max-width: 500px) {
-
     }
 
   </style>
@@ -340,12 +395,16 @@
               <li><a href="#">DELIVERY</a></li>
               <li><a href="#">PROMOTION</a></li>
             </ul>
-            <div class="quick-btn quick-search">
+            <div class="quick-btn btn-search">
               <i class="fas fa-search"></i>
             </div>
-          </nav>
-          
-          
+          </nav>  
+        </div>
+        <div class="quick-search">
+          <input type="text" name="search" id="search" placeholder="Search">
+          <div class="btn-close-search">
+            <i class="fas fa-times"></i>
+          </div>
         </div>
       </div>
     </header>
@@ -398,10 +457,10 @@
             <h2>메인프로모션</h2>
           </div>
           <div class="btn-move">
-            <div class="btn-prev"><i class="far fa-chevron-left"></i></div>
-            <div class="btn-next"><i class="far fa-chevron-right"></i></div>
+            <div class="btn-prev"><i class="fas fa-chevron-left"></i></div>
+            <div class="btn-next"><i class="fas fa-chevron-right"></i></div>
           </div>
-          <div class="slider mp-slider ">
+          <div class="slider mp-slider">
             <div class="slide slide01">
               <a href="#"><img src="./images/img-slide01.jpg" alt="메인-사랑합니다."></a>
             </div>
@@ -787,35 +846,57 @@
     </div>
   </section>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    // 해상도 줄어들엇을 시 
+    // 메뉴 버튼 클릭 및 검색 버튼 클릭시
+    // 활성화-비활성화 스크립트
     let allWrap = document.querySelector('.all-page');
     let btnQuickMenu = document.querySelector('.quick-menu');
-    let btnQuickClose = document.querySelector('.btn-close-nav>i');
+    let btnQuickClose = document.querySelector('.btn-close-nav');
     let subNav = document.querySelector('.sub-nav');
+    let btnQuickSearch = document.querySelector('.btn-search')
+    let quickSearch = document.querySelector('.quick-search');
+    let btnSearchClose = document.querySelector('.btn-close-search');
     btnQuickMenu.addEventListener('click', ()=>{
       subNav.style.left = 0;
       allWrap.style.opacity = 0.3;   
       allWrap.style.zIndex = 9;   
     });
     btnQuickClose.addEventListener('click', ()=>{
-      subNav.style.left = '-100%';
+      subNav.style.left = `${-100}%`;
       allWrap.style.opacity = 0;  
       allWrap.style.zIndex = -1;
-      
     });
+    btnQuickSearch.addEventListener('click', ()=>{
+      quickSearch.style.top = 0;
+      allWrap.style.opacity = 0.3;
+      allWrap.style.zIndex = 9;
+    });
+    btnSearchClose.addEventListener('click', ()=>{
+      quickSearch.style.top = `${-100}%`;
+      allWrap.style.opacity = 0;
+      allWrap.style.zIndex = -1;
+    });
+
+    // 메인프로모션(슬라이더) 부모 높이 지정하는 부분
     let slideItem = document.querySelector('.slide01 img');
     let sliderObject = document.querySelector('.slider');
+    let btnMove = document.querySelector('.btn-move');
     function 높이조정(){
       sliderObject.style.height = `${slideItem.clientHeight}px`;
+      btnMove.style.height = `${slideItem.clientHeight}px`;
+      btnMove.style.width = `${document.body.clientWidth}px`;
     }
-   
+      높이조정(); // 새로고침시 위치조정 방지
+      window.onresize = ()=>{ // 윈도우 크기 변경시 높이조정
       높이조정();
-    window.onresize = ()=>{
-      높이조정();
+      console.log(document.body.clientWidth);
     }
 
 
     
   </script>
+  
 </body>
 </html>
