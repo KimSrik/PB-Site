@@ -323,6 +323,7 @@
         position: absolute;
         /* width: 50%; */
         z-index: 6;
+        transition: 1s;
       }
       .mp-active{
         left: 0;     
@@ -923,24 +924,36 @@
     let btnNext = document.querySelector('.btn-next');
     let slideItems = document.querySelectorAll('.mp-slide');
     let activeItems = document.querySelector('.mp-active');
-    let mpCount = 0;
+    let mpCCount = 0;
+    let mpNCount = 1;
+    let mpPCount = 2;
+    
     btnPrev.addEventListener('click', ()=>{
-      console.log(slideItems);
+        
+
+        slideItems[Math.abs(mpPCount)%3].classList.remove('mp-noactive2');
+        slideItems[Math.abs(mpPCount)%3].classList.add('mp-active');
+        mpPCount--;
+        slideItems[Math.abs(mpCCount)%3].classList.remove('mp-active');
+        slideItems[Math.abs(mpCCount)%3].classList.add('mp-noactive1');
+        mpCCount--;
+        slideItems[Math.abs(mpNCount)%3].classList.remove('mp-noactive1');
+        slideItems[Math.abs(mpNCount)%3].classList.add('mp-noactive2');
+        mpNCount--;
+        
     });
     btnNext.addEventListener('click', ()=>{
-      if(mpCount<3 && mpCount >= 0){
-        slideItems[mpCount].classList.remove('mp-active');
-        slideItems[mpCount].classList.add('mp-noactive2');
-        mpCount++;
-        slideItems[mpCount].classList.remove('mp-noactive1');
-        slideItems[mpCount].classList.add('mp-active');
-        slideItems[(mpCount+1)%3].classList.remove('no-noactive2');
-        slideItems[(mpCount+1)%3].classList.add('no-noactive1');
-        console.log(mpCount%3);
-      }else{
-        mpCount = 0;
-      }
-
+      
+        slideItems[mpPCount%3].classList.remove('mp-noactive2');
+        slideItems[mpPCount%3].classList.add('mp-noactive1');
+        mpPCount++;
+        slideItems[mpCCount%3].classList.remove('mp-active');
+        slideItems[mpCCount%3].classList.add('mp-noactive2');
+        mpCCount++;
+        slideItems[mpNCount%3].classList.remove('mp-noactive1');
+        slideItems[mpNCount%3].classList.add('mp-active');
+        mpNCount++;
+        
 
     });
 
