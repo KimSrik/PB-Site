@@ -318,8 +318,9 @@
       }
       .mp-slider{
         position: relative;
+        overflow: hidden;
       }
-      .mp-slider .mp-slide{     
+      .mp-slide{     
         position: absolute;
         /* width: 50%; */
         z-index: 6;
@@ -329,11 +330,11 @@
         left: 0;     
         right: 50%;  
       }
-      .mp-noactive1{
+      .mp-nextactive{
         left: 50%;
         right: 0;
       }
-      .mp-noactive2{
+      .mp-prevactive{
         left: 100%;
         right: -50%;
       }
@@ -348,6 +349,7 @@
         line-height: 120px;
       }
       .btn-prev{
+        
         position: absolute;
         left: 5%;
         top: 50%;
@@ -480,21 +482,21 @@
           <div class="sec-tit">
             <h2>메인프로모션</h2>
           </div>  
-          <div class="slider mp-slider">
-            <div class="mp-slide mp-slide01 mp-active">
+          <ul class="slider mp-slider">
+            <li class="mp-slide mp-slide01">
               <a href="#"><img src="./images/img-slide01.jpg" alt="메인-사랑합니다."></a>
-            </div>
-            <div class="mp-slide mp-slide02 mp-noactive1">
+            </li>
+            <li class="mp-slide mp-slide02">
               <a href="#"><img src="./images/img-slide02.jpg" alt="메인-디카페인"></a>
-            </div>
-            <div class="mp-slide mp-slide03 mp-noactive2">
+            </li>
+            <li class="mp-slide mp-slide03">
               <a href="#"><img src="./images/img-slide03.jpg" alt="메인-가평맛남샌드"></a>
-            </div>
-            <div class="btn-move">
+            </li>
+            <span class="btn-move">
               <div class="btn-prev"><i class="fas fa-chevron-left"></i></div>
               <div class="btn-next"><i class="fas fa-chevron-right"></i></div>
-            </div>
-          </div>
+            </span>
+          </ul>
           
         </div>
       </div>
@@ -908,51 +910,49 @@
     let slideItemImg = document.querySelector('.mp-slide01 img');
     let sliderObject = document.querySelector('.mp-slider');
     let btnMove = document.querySelector('.btn-move');
-    function 높이조정(){
+    function HeightControl(){
       sliderObject.style.height = `${slideItemImg.clientHeight}px`;
       btnMove.style.height = `${slideItemImg.clientHeight}px`;
       btnMove.style.width = `${document.body.clientWidth}px`;
     }
-      높이조정(); // 새로고침시 위치조정 방지
+      HeightControl(); // 새로고침시 위치조정 방지
       window.onresize = ()=>{ // 윈도우 크기 변경시 높이조정
-      높이조정();
-      console.log(document.body.clientWidth);
+        HeightControl();
     }
 
     // 메인프로모션(슬라이더) 동작
     let btnPrev = document.querySelector('.btn-prev');
     let btnNext = document.querySelector('.btn-next');
-    let slideItems = document.querySelectorAll('.mp-slide');
-    let activeItems = document.querySelector('.mp-active');
-    let mpCCount = 0;
-    let mpNCount = 1;
-    let mpPCount = 2;
+    let mpSlides = document.querySelector('.mp-slider');
+    let mpSlideItems = document.querySelectorAll('.mp-slider li');
+    let mpCIdx = 0;
+    let mpSlideCount = mpSlideItems.length;
+    let slideWidth = document.body.clientWidth / 2;
+
+    console.log(mpSlideCount);
+
+    mpSideClone();
+    mpInitPosition();
+
+    function mpSideClone() {
+      let cloneSlideFirst = mpSlideItems[0].cloneNode(true);
+      let cloneSlideLast = mpSlides.lastElementChild.cloneNode(true);
+      mpSlides.append(cloneSlideFirst);
+      mpSlides.insertBefore(cloneSlideLast, mpSlides.firstElementChild);
+    }
+
+    function mpInitPosition() {
+      mpSlides.style.width = `${(slideWidth) * (mpSlideCount + 2)}px`;
+      mpSlides.style.left = `${-slideWidth}px`;
+    }
     
     btnPrev.addEventListener('click', ()=>{
-        
+      
 
-        slideItems[Math.abs(mpPCount)%3].classList.remove('mp-noactive2');
-        slideItems[Math.abs(mpPCount)%3].classList.add('mp-active');
-        mpPCount--;
-        slideItems[Math.abs(mpCCount)%3].classList.remove('mp-active');
-        slideItems[Math.abs(mpCCount)%3].classList.add('mp-noactive1');
-        mpCCount--;
-        slideItems[Math.abs(mpNCount)%3].classList.remove('mp-noactive1');
-        slideItems[Math.abs(mpNCount)%3].classList.add('mp-noactive2');
-        mpNCount--;
         
     });
     btnNext.addEventListener('click', ()=>{
-      
-        slideItems[mpPCount%3].classList.remove('mp-noactive2');
-        slideItems[mpPCount%3].classList.add('mp-noactive1');
-        mpPCount++;
-        slideItems[mpCCount%3].classList.remove('mp-active');
-        slideItems[mpCCount%3].classList.add('mp-noactive2');
-        mpCCount++;
-        slideItems[mpNCount%3].classList.remove('mp-noactive1');
-        slideItems[mpNCount%3].classList.add('mp-active');
-        mpNCount++;
+
         
 
     });
